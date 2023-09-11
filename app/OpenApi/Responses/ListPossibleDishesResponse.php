@@ -17,7 +17,7 @@ class ListPossibleDishesResponse extends ResponseFactory
                     ->properties(
                         Schema::number('price')
                             ->format(Schema::FORMAT_DOUBLE),
-                        Schema::array()
+                        Schema::array('products')
                             ->items(
                                 Schema::object()
                                     ->properties(

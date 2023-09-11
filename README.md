@@ -5,6 +5,7 @@
 ```bash
 cp .env.example .env
 composer install
+php artisan key:generate
 ```
 
 После нужно установить значения для `DB_` переменных, либо можно установить

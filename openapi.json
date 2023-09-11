@@ -37,7 +37,7 @@
                                                 "format": "double",
                                                 "type": "number"
                                             },
-                                            "": {
+                                            "products": {
                                                 "type": "array",
                                                 "items": {
                                                     "type": "object",

@@ -1,0 +1,101 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Lifemart test task",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http:\/\/lifemart-test.localhost"
+        }
+    ],
+    "paths": {
+        "\/api\/dish-builder\/combinations": {
+            "get": {
+                "summary": "List possible dishes with provided ingredients combo",
+                "parameters": [
+                    {
+                        "name": "ingredients",
+                        "in": "query",
+                        "description": "String of ingredient type codes",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "price": {
+                                                "format": "double",
+                                                "type": "number"
+                                            },
+                                            "": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "value": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "$ref": "#\/components\/responses\/ErrorValidation"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "responses": {
+            "ErrorValidation": {
+                "description": "Validation errors",
+                "content": {
+                    "application\/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "example": "The given data was invalid."
+                                },
+                                "errors": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example": {
+                                        "field": [
+                                            "Something is wrong with this field!"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -143,7 +143,7 @@ class IngredientCombinationController extends Controller
                     'value' => $ingredient->title,
                 ];
             });
-            $result['price'] = $dish->price;
+            $result['price'] = (double) $dish->price;
 
             return $result;
         });
